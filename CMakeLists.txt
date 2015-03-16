@@ -2,11 +2,8 @@ cmake_minimum_required(VERSION 2.8)
 
 project(mpich2-test)
 
-add_executable(mpich2-test main.c)
-
 # Require MPI for this project:
 find_package(MPI REQUIRED)
-#set(CMAKE_CXX_COMPILE_FLAGS ${CMAKE_CXX_COMPILE_FLAGS} ${MPI_COMPILE_FLAGS})
-#set(CMAKE_CXX_LINK_FLAGS ${CMAKE_CXX_LINK_FLAGS} ${MPI_LINK_FLAGS})
 include_directories(MPI_C_INCLUDE_PATH)
+add_executable(mpich2-test main.c)
 target_link_libraries(mpich2-test ${MPI_LIBRARIES})
